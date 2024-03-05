@@ -35,3 +35,20 @@
         reformatted (format/reformat
                      q)]
     (test/is (= expect reformatted))))
+
+(test/deftest query-with-multiple-nested-field-names-no-parameters-test
+  (let [q "query{user{name job}account{email username}}"
+        expect (str
+                "query {" "\n"
+                "  user {" "\n"
+                "    name" "\n"
+                "    job" "\n"
+                "  }" "\n"
+                "  account {" "\n"
+                "    email" "\n"
+                "    username" "\n"
+                "  }" "\n"
+                "}")
+        reformatted (format/reformat
+                     q)]
+    (test/is (= expect reformatted))))
