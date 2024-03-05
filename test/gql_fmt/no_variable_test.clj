@@ -52,3 +52,19 @@
         reformatted (format/reformat
                      q)]
     (test/is (= expect reformatted))))
+
+(test/deftest query-with-one-deeply-nested-field-name-test
+  (let [q "query{user{name{first{initial}}}}"
+        expect (str
+                "query {" "\n"
+                "  user {" "\n"
+                "    name {" "\n"
+                "      first {" "\n"
+                "        initial" "\n"
+                "      }" "\n"
+                "    }" "\n"
+                "  }" "\n"
+                "}")
+        reformatted (format/reformat
+                     q)]
+    (test/is (= expect reformatted))))
