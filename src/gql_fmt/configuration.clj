@@ -19,6 +19,7 @@
   []
   {:after-arguments " "
    :after-field-name " "
+   :after-opening-selection-set "\n"
    :after-opening-operation "\n"
    :after-operation " "
    :after-variables " "
