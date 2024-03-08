@@ -60,6 +60,9 @@
                        (token/syntax-element
                         context
                         :bracket
-                        :closing-variables)]]
+                        :closing-variables)
+                       (token/whitespace
+                        context
+                        :after-variables)]]
     with-brackets))
 

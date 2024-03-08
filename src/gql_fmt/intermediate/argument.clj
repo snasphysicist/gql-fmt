@@ -29,16 +29,16 @@
       "Don't know what to do with arguments of type "
       type))
     (logging/debug
-     "Formatting argument"
-     argument
-     "with name"
+     "Formatting argument with name"
      argument-name
      "with type"
      type
      "with variable name"
      variable-name
      "as"
-     intermediate)
+     intermediate
+     "full"
+     argument)
     intermediate))
 
 (defn from-many
@@ -52,14 +52,13 @@
                                 (mapv
                                  #(from context %)
                                  arguments)
-                                (repeat
-                                 [(token/syntax-element
-                                   context
-                                   :delimiter
-                                   :between-arguments)
-                                  (token/whitespace
-                                   context
-                                   :between-arguments)]))
+                                [(token/syntax-element 
+                                  context 
+                                  :delimiter 
+                                  :between-arguments) 
+                                 (token/whitespace 
+                                  context
+                                  :between-arguments)])
         bracketed [(token/syntax-element
                     context
                     :bracket
