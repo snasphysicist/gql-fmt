@@ -1,6 +1,8 @@
 (ns gql-fmt.configuration
   "Tools to provide/load formatting configuration")
 
+(set! *warn-on-reflection* true)
+
 (defn ^:private bracket
   "Configuration for brackets/parentheses
    used in formatted output"

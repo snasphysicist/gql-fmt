@@ -6,6 +6,8 @@
    [gql-fmt.intermediate.print :as print]
    [taoensso.timbre :as logging]))
 
+(set! *warn-on-reflection* true)
+
 (defn reformat
   "Reformat given string query `q`
    into configured standard format"

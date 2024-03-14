@@ -1,6 +1,8 @@
 (ns gql-fmt.intermediate.print 
   (:require [clojure.string :as string]))
 
+(set! *warn-on-reflection* true)
+
 (defn- token->string
   "Stringify an intermediate form token"
   [context token]

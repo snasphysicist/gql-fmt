@@ -3,6 +3,8 @@
             [gql-fmt.transform :as transform]
             [gql-fmt.intermediate.token :as token]))
 
+(set! *warn-on-reflection* true)
+
 (defn- from
   "Converts a single argument to the intermediate form"
   [context argument]

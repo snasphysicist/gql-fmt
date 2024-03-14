@@ -1,5 +1,7 @@
 (ns gql-fmt.indent)
 
+(set! *warn-on-reflection* true)
+
 (defn increase 
   "Increase the current indent level by one"
   [context]

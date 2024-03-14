@@ -3,6 +3,8 @@
             [gql-fmt.intermediate.token :as token]
             [gql-fmt.transform :as transform]))
 
+(set! *warn-on-reflection* true)
+
 (defn ^:private variable
   "Produces the intermediate form corresponding
    to a single variable from an Alumbra operation"

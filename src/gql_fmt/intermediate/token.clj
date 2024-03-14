@@ -7,6 +7,8 @@
   (:require 
    [clojure.string :as string]))
 
+(set! *warn-on-reflection* true)
+
 (defn string-literal
   "Represents a string literal
    that should be printed 'as is'"

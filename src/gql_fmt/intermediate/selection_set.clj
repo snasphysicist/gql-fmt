@@ -4,6 +4,8 @@
             [gql-fmt.intermediate.argument :as argument]
             [gql-fmt.indent :as indent]))
 
+(set! *warn-on-reflection* true)
+
 (declare from)
 
 (defn- from-selection
