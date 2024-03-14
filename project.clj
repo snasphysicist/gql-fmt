@@ -9,4 +9,7 @@
   :main ^:skip-aot gql-fmt.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
-                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
+                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}}
+  :native-image {:opts ["--initialize-at-build-time"
+                        "--verbose"
+                        "--no-server"]})
