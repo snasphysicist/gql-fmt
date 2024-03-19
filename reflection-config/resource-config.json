@@ -1,0 +1,349 @@
+{
+  "resources":{
+  "includes":[{
+    "pattern":"\\QMETA-INF/services/java.time.zone.ZoneRulesProvider\\E"
+  }, {
+    "pattern":"\\Qalumbra/GraphQL.g4\\E"
+  }, {
+    "pattern":"\\Qalumbra/GraphQLSchema.g4\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser.clj\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser/antlr.clj\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser/antlr__init.class\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser/document.clj\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser/document__init.class\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser/schema.clj\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser/schema__init.class\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser/traverse.clj\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser/traverse__init.class\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser/utils.clj\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser/utils__init.class\\E"
+  }, {
+    "pattern":"\\Qalumbra/parser__init.class\\E"
+  }, {
+    "pattern":"\\Qclj_antlr/coerce.clj\\E"
+  }, {
+    "pattern":"\\Qclj_antlr/coerce__init.class\\E"
+  }, {
+    "pattern":"\\Qclj_antlr/common.clj\\E"
+  }, {
+    "pattern":"\\Qclj_antlr/common__init.class\\E"
+  }, {
+    "pattern":"\\Qclj_antlr/core.clj\\E"
+  }, {
+    "pattern":"\\Qclj_antlr/core__init.class\\E"
+  }, {
+    "pattern":"\\Qclj_antlr/interpreted.clj\\E"
+  }, {
+    "pattern":"\\Qclj_antlr/interpreted__init.class\\E"
+  }, {
+    "pattern":"\\Qclj_antlr/proto.clj\\E"
+  }, {
+    "pattern":"\\Qclj_antlr/proto__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/core.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/core/async.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/core/async.cljc\\E"
+  }, {
+    "pattern":"\\Qclojure/core/protocols.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/core/protocols__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/core/server.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/core/server__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/core/specs/alpha.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/core/specs/alpha__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/core__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/core_deftype.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/core_deftype__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/core_print.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/core_print__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/core_proxy.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/core_proxy__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/edn.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/edn__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/genclass.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/genclass__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/gvec.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/gvec__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/instant.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/instant__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/java/io.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/java/io__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/main.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/main__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/cl_format.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/cl_format__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/column_writer.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/column_writer__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/dispatch.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/dispatch__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/pprint_base.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/pprint_base__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/pretty_writer.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/pretty_writer__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/print_table.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/print_table__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/utilities.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint/utilities__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/pprint__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/set.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/set__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/spec/alpha.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/spec/alpha__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/spec/gen/alpha.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/spec/gen/alpha__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/string.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/string__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/default_data_readers.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/default_data_readers__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/edn.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/edn__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/impl/commons.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/impl/commons__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/impl/errors.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/impl/errors__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/impl/inspect.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/impl/inspect__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/impl/utils.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/impl/utils__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/reader_types.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader/reader_types__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/tools/reader__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/uuid.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/uuid__init.class\\E"
+  }, {
+    "pattern":"\\Qclojure/version.properties\\E"
+  }, {
+    "pattern":"\\Qclojure/walk.clj\\E"
+  }, {
+    "pattern":"\\Qclojure/walk__init.class\\E"
+  }, {
+    "pattern":"\\Qdata_readers.clj\\E"
+  }, {
+    "pattern":"\\Qdata_readers.cljc\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/configuration.clj\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/configuration__init.class\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/core.clj\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/core__init.class\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/format.clj\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/format__init.class\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/indent.clj\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/indent__init.class\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/argument.clj\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/argument__init.class\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/operation.clj\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/operation__init.class\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/print.clj\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/print__init.class\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/selection_set.clj\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/selection_set__init.class\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/token.clj\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/token__init.class\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/variables.clj\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/intermediate/variables__init.class\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/transform.clj\\E"
+  }, {
+    "pattern":"\\Qgql_fmt/transform__init.class\\E"
+  }, {
+    "pattern":"\\Qio/aviso/ansi.clj\\E"
+  }, {
+    "pattern":"\\Qio/aviso/ansi__init.class\\E"
+  }, {
+    "pattern":"\\Qio/aviso/columns.clj\\E"
+  }, {
+    "pattern":"\\Qio/aviso/columns__init.class\\E"
+  }, {
+    "pattern":"\\Qio/aviso/exception.clj\\E"
+  }, {
+    "pattern":"\\Qio/aviso/exception__init.class\\E"
+  }, {
+    "pattern":"\\Qnrepl/core.clj\\E"
+  }, {
+    "pattern":"\\Qnrepl/core.cljc\\E"
+  }, {
+    "pattern":"\\Qnrepl/core__init.class\\E"
+  }, {
+    "pattern":"\\Qorg/antlr/v4/tool/templates/codegen/Java/Java.stg\\E"
+  }, {
+    "pattern":"\\Qorg/antlr/v4/tool/templates/messages/formats/antlr.stg\\E"
+  }, {
+    "pattern":"\\Qtaoensso.elide-deprecated\\E"
+  }, {
+    "pattern":"\\Qtaoensso.timbre.config.edn\\E"
+  }, {
+    "pattern":"\\Qtaoensso.timbre.config\\E"
+  }, {
+    "pattern":"\\Qtaoensso.timbre.default-stacktrace-fonts.edn\\E"
+  }, {
+    "pattern":"\\Qtaoensso.timbre.default-stacktrace-fonts\\E"
+  }, {
+    "pattern":"\\Qtaoensso.timbre.min-level.edn\\E"
+  }, {
+    "pattern":"\\Qtaoensso.timbre.min-level\\E"
+  }, {
+    "pattern":"\\Qtaoensso.timbre.ns-pattern.edn\\E"
+  }, {
+    "pattern":"\\Qtaoensso.timbre.ns-pattern\\E"
+  }, {
+    "pattern":"\\Qtaoensso/encore.clj\\E"
+  }, {
+    "pattern":"\\Qtaoensso/encore.cljc\\E"
+  }, {
+    "pattern":"\\Qtaoensso/encore__init.class\\E"
+  }, {
+    "pattern":"\\Qtaoensso/telemere.cljc\\E"
+  }, {
+    "pattern":"\\Qtaoensso/timbre.clj\\E"
+  }, {
+    "pattern":"\\Qtaoensso/timbre.cljc\\E"
+  }, {
+    "pattern":"\\Qtaoensso/timbre/appenders/core.clj\\E"
+  }, {
+    "pattern":"\\Qtaoensso/timbre/appenders/core.cljc\\E"
+  }, {
+    "pattern":"\\Qtaoensso/timbre/appenders/core__init.class\\E"
+  }, {
+    "pattern":"\\Qtaoensso/timbre__init.class\\E"
+  }, {
+    "pattern":"\\Qtaoensso/truss.clj\\E"
+  }, {
+    "pattern":"\\Qtaoensso/truss.cljc\\E"
+  }, {
+    "pattern":"\\Qtaoensso/truss/impl.clj\\E"
+  }, {
+    "pattern":"\\Qtaoensso/truss/impl.cljc\\E"
+  }, {
+    "pattern":"\\Qtaoensso/truss/impl__init.class\\E"
+  }, {
+    "pattern":"\\Qtaoensso/truss__init.class\\E"
+  }, {
+    "pattern":"\\Qtimbre-defaut-stacktrace-fonts.edn\\E"
+  }, {
+    "pattern":"\\Qtimbre-defaut-stacktrace-fonts\\E"
+  }, {
+    "pattern":"\\Qtimbre-level.edn\\E"
+  }, {
+    "pattern":"\\Qtimbre-level\\E"
+  }, {
+    "pattern":"\\Qtimbre-log-level.edn\\E"
+  }, {
+    "pattern":"\\Qtimbre-log-level\\E"
+  }, {
+    "pattern":"\\Qtimbre-ns-blacklist.edn\\E"
+  }, {
+    "pattern":"\\Qtimbre-ns-blacklist\\E"
+  }, {
+    "pattern":"\\Qtimbre-ns-pattern.edn\\E"
+  }, {
+    "pattern":"\\Qtimbre-ns-pattern\\E"
+  }, {
+    "pattern":"\\Qtimbre-ns-whitelist.edn\\E"
+  }, {
+    "pattern":"\\Qtimbre-ns-whitelist\\E"
+  }, {
+    "pattern":"\\Quser.clj\\E"
+  }, {
+    "pattern":"java.base:\\Qsun/net/www/content-types.properties\\E"
+  }]},
+  "bundles":[]
+}

@@ -1,0 +1,50 @@
+export JAVA_HOME=/home/scott/.sdkman/candidates/java/21.0.2-graalce/
+export PATH=$JAVA_HOME/bin:$PATH
+
+lein uberjar
+native-image \
+  -H:ReflectionConfigurationFiles=reflection-config/reflect-config.json \
+  -H:JNIConfigurationFiles=reflection-config/jni-config.json \
+  -H:ResourceConfigurationFiles=reflection-config/resource-config.json \
+  --verbose \
+  --no-server \
+  --no-fallback \
+  --initialize-at-build-time \
+  --initialize-at-run-time=sun.awt.X11.XWM \
+  --initialize-at-run-time=sun.awt.X11.WindowPropertyGetter \
+  --initialize-at-run-time=sun.awt.X11.XSystemTrayPeer \
+  --initialize-at-run-time=sun.awt.X11.XWindow \
+  --initialize-at-run-time=sun.awt.X11.XDnDConstants \
+  --initialize-at-run-time=sun.awt.X11.MotifDnDConstants \
+  --initialize-at-run-time=sun.awt.X11.XSelection \
+  --initialize-at-run-time='sun.awt.X11.InfoWindow$Tooltip' \
+  --initialize-at-run-time=sun.awt.X11.XMSelection \
+  --initialize-at-run-time=sun.awt.X11.XDataTransferer \
+  --initialize-at-run-time=sun.awt.X11.XToolkitThreadBlockedHandler \
+  --initialize-at-run-time=sun.awt.X11InputMethodBase \
+  --initialize-at-run-time='sun.awt.dnd.SunDropTargetContextPeer$EventDispatcher' \
+  --initialize-at-run-time=sun.awt.X11GraphicsConfig \
+  --initialize-at-run-time=sun.awt.X11.XBaseWindow \
+  --initialize-at-run-time=sun.awt.X11.XToolkit \
+  --initialize-at-run-time=sun.awt.X11.XRootWindow \
+  --initialize-at-run-time=sun.awt.X11.XDragAndDropProtocol \
+  --initialize-at-run-time=sun.awt.X11.XDragAndDropProtocols \
+  --initialize-at-run-time='sun.awt.X11.XRootWindow$LazyHolder' \
+  --initialize-at-run-time=java.awt.event.MouseEvent \
+  --initialize-at-run-time=javax.swing.RepaintManager \
+  --initialize-at-run-time=clojure.core.server__init \
+  --initialize-at-run-time=clojure.pprint.dispatch__init \
+  --initialize-at-run-time=clojure.pprint__init \
+  --initialize-at-run-time=gql_fmt.configuration__init \
+  --initialize-at-run-time=gql_fmt.format__init \
+  --initialize-at-run-time=gql_fmt.indent__init \
+  --initialize-at-run-time=gql_fmt.intermediate.argument__init \
+  --initialize-at-run-time=gql_fmt.intermediate.print__init \
+  --initialize-at-run-time=gql_fmt.intermediate.selection_set__init \
+  --initialize-at-run-time=gql_fmt.core__init \
+  --initialize-at-run-time=gql_fmt.intermediate.token__init \
+  --initialize-at-run-time=gql_fmt.transform__init \
+  --initialize-at-run-time=gql_fmt.intermediate.variables__init \
+  --initialize-at-run-time=gql_fmt.intermediate.operation__init \
+  --trace-class-initialization=gql_fmt.intermediate.argument__init,gql_fmt.intermediate.selection_set__init,gql_fmt.configuration__init,clojure.pprint__init,gql_fmt.core__init,gql_fmt.intermediate.token__init,gql_fmt.format__init,gql_fmt.intermediate.variables__init,clojure.core.server__init,gql_fmt.indent__init,gql_fmt.transform__init,gql_fmt.intermediate.print__init,gql_fmt.intermediate.operation__init,clojure.pprint.dispatch__init \
+  -jar target/uberjar/gql-fmt-0.1.0-SNAPSHOT-standalone.jar
