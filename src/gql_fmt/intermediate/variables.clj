@@ -1,5 +1,6 @@
 (ns gql-fmt.intermediate.variables
   (:require [gql-fmt.intermediate.token :as token]
+            [gql-fmt.intermediate.type :as type]
             [gql-fmt.transform :as transform]
             [taoensso.timbre :as logging]))
 
@@ -10,30 +11,23 @@
    to a single variable from an Alumbra operation"
   [context variable]
   (logging/debug
-   "Variable -> intermediate form")
-  (let [name (:alumbra/variable-name variable)
-        type-name (-> variable :alumbra/type :alumbra/type-name)
-        non-null? (-> variable :alumbra/type :alumbra/non-null?)
-        null-bang (when non-null?
-                    (token/syntax-element
-                     context
-                     :suffix
-                     :after-non-null-arguments))]
+   "Variable -> intermediate form"
+   variable)
+  (let [name (:alumbra/variable-name variable)]
     (remove
      nil?
-     [(token/syntax-element
-       context
-       :prefix
-       :before-variables)
-      (token/string-literal
-       name)
-      (token/syntax-element
-       context
-       :delimiter
-       :between-variable-and-argument)
-      (token/string-literal
-       type-name)
-      null-bang])))
+     (concat
+      [(token/syntax-element
+        context
+        :prefix
+        :before-variables)
+       (token/string-literal
+        name)
+       (token/syntax-element
+        context
+        :delimiter
+        :between-variable-and-argument)]
+      (type/from context (:alumbra/type variable))))))
 
 (defn from
   "Produces the intermediate form corresponding

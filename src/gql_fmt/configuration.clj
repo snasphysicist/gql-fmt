@@ -8,9 +8,11 @@
    used in formatted output"
   []
   {:closing-arguments ")"
+   :closing-list "]"
    :closing-selection-set "}"
    :closing-variables ")"
    :opening-arguments "("
+   :opening-list "["
    :opening-operation "{"
    :opening-selection-set "{"
    :opening-variables "("})
