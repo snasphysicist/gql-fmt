@@ -8,5 +8,4 @@
   :main ^:aot gql-fmt.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
-                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}}
-  :jvm-opts ["-agentlib:native-image-agent=config-output-dir=reflection-config"])
+                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
