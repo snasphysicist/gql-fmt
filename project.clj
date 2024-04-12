@@ -1,4 +1,4 @@
-(defproject gql-fmt "0.1.0"
+(defproject pw.snas/gql-fmt "0.1.0"
   :description "A GraphQL query formatter" 
   :url "https://github.com/snasphysicist/gql-fmt"
   :license {:name "MIT"
