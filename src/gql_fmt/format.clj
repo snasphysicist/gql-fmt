@@ -1,5 +1,5 @@
 (ns gql-fmt.format
-  (:require 
+  (:require
    [alumbra.parser :as parser]
    [gql-fmt.configuration :as configuration]
    [gql-fmt.intermediate.operation :as intermediate.operation]
@@ -20,7 +20,7 @@
             "One top level operation is assumed, found"
             (count operations)))
         context {:indent-level 0}
-        context (configuration/with-configuration 
+        context (configuration/with-configuration
                   context)
         intermediate (intermediate.operation/from
                       context

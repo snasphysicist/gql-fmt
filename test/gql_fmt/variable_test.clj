@@ -41,9 +41,9 @@
 (test/deftest query-with-multiple-unnested-field-names-one-parameter-test
   (let [q (str "query($id:String!)"
                "{"
-                "user(id:$id){name(id:$id) job(id:$id)}"
-                "account(id:$id){email(id:$id) username(id:$id)}"
-                "}")
+               "user(id:$id){name(id:$id) job(id:$id)}"
+               "account(id:$id){email(id:$id) username(id:$id)}"
+               "}")
         expect (str
                 "query ($id:String!) {" "\n"
                 "  user (id:$id) {" "\n"
@@ -102,7 +102,7 @@
     (test/is (= expect reformatted))))
 
 (test/deftest query-with-multiple-deeply-nested-field-names-one-parameter-test
-  (let [q (str 
+  (let [q (str
            "query($id:String!){"
            "user(id:$id){"
            "name(id:$id){"
@@ -173,28 +173,28 @@
 (test/deftest query-with-multiple-deeply-nested-field-names-multiple-parameters-test
   (let [q (str
            "query($id:ID,$email:String!,$age:Int!){"
-             "user(id:$id,email:$email){"
-               "name(email:$email,age:$age){"
-                 "first(age:$age,id:$id,email:$email){"
-                   "initial(id:$id) full(email:$email,age:$age)}"
-                 "last(id:$id,age:$age){"
-                   "initial(email:$email,id:$id) full(id:$id,email:$email)}}"
-               "job(age:$age){"
-                 "department(age:$age,email:$email){"
-                   "name(id:$id,age:$age) location(email:$email,id:$id,age:$age)}"
-                 "responsibilities(email:$email){"
-                   "technical(age:$age,email:$email) managerial(age:$age,id:$id)}}}"
-             "account{"
-               "email(id:$id,email:$email,age:$age){"
-                 "history{"
-                   "current(email:$email) previous(email:$email,age:$age,id:$id)}"
-                 "verification(email:$email,age:$age){"
-                   "verified(age:$id,id:$email) datetime}}"
-               "payment(age:$email,id:$age,email:$id){"
-                 "balance(id:$id,age:$age){"
-                   "value(id:$id,email:$email) creditable(age:$age,email:$email)}"
-                 "card(age:$age,id:$id){"
-                   "expiry(age:$age,email:$email) issuer(email:$email,id:$id)}}}}")
+           "user(id:$id,email:$email){"
+           "name(email:$email,age:$age){"
+           "first(age:$age,id:$id,email:$email){"
+           "initial(id:$id) full(email:$email,age:$age)}"
+           "last(id:$id,age:$age){"
+           "initial(email:$email,id:$id) full(id:$id,email:$email)}}"
+           "job(age:$age){"
+           "department(age:$age,email:$email){"
+           "name(id:$id,age:$age) location(email:$email,id:$id,age:$age)}"
+           "responsibilities(email:$email){"
+           "technical(age:$age,email:$email) managerial(age:$age,id:$id)}}}"
+           "account{"
+           "email(id:$id,email:$email,age:$age){"
+           "history{"
+           "current(email:$email) previous(email:$email,age:$age,id:$id)}"
+           "verification(email:$email,age:$age){"
+           "verified(age:$id,id:$email) datetime}}"
+           "payment(age:$email,id:$age,email:$id){"
+           "balance(id:$id,age:$age){"
+           "value(id:$id,email:$email) creditable(age:$age,email:$email)}"
+           "card(age:$age,id:$id){"
+           "expiry(age:$age,email:$email) issuer(email:$email,id:$id)}}}}")
         expect (str
                 "query ($id:ID, $email:String!, $age:Int!) {" "\n"
                 "  user (id:$id, email:$email) {" "\n"

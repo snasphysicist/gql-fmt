@@ -70,7 +70,7 @@
     (test/is (= expect reformatted))))
 
 (test/deftest query-with-multiple-deeply-nested-field-names-no-parameters-test
-  (let [q (str 
+  (let [q (str
            "query { "
            "user { "
            "name { "
@@ -119,7 +119,7 @@
                 "  }" "\n"
                 "  account {" "\n"
                 "    email {" "\n"
-                "      history {" "\n" 
+                "      history {" "\n"
                 "        current" "\n"
                 "        previous" "\n"
                 "      }" "\n"
@@ -140,5 +140,5 @@
                 "    }" "\n"
                 "  }" "\n"
                 "}")
-         reformatted (format/reformat q)]
+        reformatted (format/reformat q)]
     (test/is (= expect reformatted))))

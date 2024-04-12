@@ -1,4 +1,4 @@
-(ns gql-fmt.intermediate.print 
+(ns gql-fmt.intermediate.print
   (:require [clojure.string :as string]))
 
 (set! *warn-on-reflection* true)
@@ -8,24 +8,24 @@
   [context token]
   (let [type (:token token)]
     (case type
-      
+
       :string-literal
       (:content token)
-      
+
       :indent
-      (string/join 
-       (repeat 
-        (:level token) 
+      (string/join
+       (repeat
+        (:level token)
         (-> context :whitespace :indent)))
 
       :whitespace
-      (-> context 
-          :whitespace 
+      (-> context
+          :whitespace
           (get (:location token)))
 
       :syntax-element
-      (-> context 
-          (get (:category token)) 
+      (-> context
+          (get (:category token))
           (get (:location token))))))
 
 (defn ->string

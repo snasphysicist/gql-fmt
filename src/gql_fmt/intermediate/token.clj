@@ -4,7 +4,7 @@
    represents an item to be printed
    (including whitespace, brackets, etc...)
    in the formatted output"
-  (:require 
+  (:require
    [clojure.string :as string]))
 
 (set! *warn-on-reflection* true)
@@ -33,8 +33,8 @@
    :whitespace context entry."
   [context location]
   (assert
-   (contains? 
-    (:whitespace context) 
+   (contains?
+    (:whitespace context)
     location)
    location)
   {:token :whitespace
@@ -45,17 +45,17 @@
    in GraphQL, e.g. brackets or $ or !."
   [context category location]
   (assert
-   (contains? 
-    context 
+   (contains?
+    context
     category)
-   (string/join 
+   (string/join
     " "
     [category location]))
   (assert
    (contains?
     (category context)
-    location) 
-   (string/join 
+    location)
+   (string/join
     " "
     [category location]))
   {:token :syntax-element

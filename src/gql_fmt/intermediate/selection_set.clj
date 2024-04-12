@@ -1,8 +1,8 @@
-(ns gql-fmt.intermediate.selection-set 
-  (:require [taoensso.timbre :as logging]
-            [gql-fmt.intermediate.token :as token]
+(ns gql-fmt.intermediate.selection-set
+  (:require [gql-fmt.indent :as indent]
             [gql-fmt.intermediate.argument :as argument]
-            [gql-fmt.indent :as indent]))
+            [gql-fmt.intermediate.token :as token]
+            [taoensso.timbre :as logging]))
 
 (set! *warn-on-reflection* true)
 
@@ -55,16 +55,16 @@
                                       (token/string-literal field-name)
                                       intermediate-arguments
                                       intermediate-sub-selection-set]]
-      (logging/debug 
+      (logging/debug
        "Formatted selection set as"
        intermediate-selection-set)
       intermediate-selection-set)))
 
-(defn from 
+(defn from
   "Produces the intermediate form corresponding 
    to the provided Alumbra selection-set"
   [context selection-set]
-  (logging/debug 
+  (logging/debug
    "Formatting"
    (count selection-set)
    "selections")
@@ -74,10 +74,10 @@
         with-newlines (vec
                        (interleave
                         intermediate
-                        (repeat (token/whitespace 
-                                 context 
+                        (repeat (token/whitespace
+                                 context
                                  :between-selections))))
-        with-closer (conj 
+        with-closer (conj
                      with-newlines
                      (token/indent context)
                      (token/syntax-element

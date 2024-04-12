@@ -2,7 +2,7 @@
 
 (set! *warn-on-reflection* true)
 
-(defn increase 
+(defn increase
   "Increase the current indent level by one"
   [context]
   (update-in

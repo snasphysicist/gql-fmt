@@ -15,7 +15,7 @@
    :opening-selection-set "{"
    :opening-variables "("})
 
-(defn ^:private whitespace 
+(defn ^:private whitespace
   "Configuration for whitespace between
    elements in formatted output"
   []
@@ -30,7 +30,7 @@
    :between-variables " "
    :indent "  "})
 
-(defn ^:private delimiter 
+(defn ^:private delimiter
   "Configuration of delimiters between
    elements in formatted output"
   []
@@ -54,7 +54,7 @@
 (defn with-configuration
   "Adds configuration into context"
   [context]
-  (merge 
+  (merge
    context
    {:bracket (bracket)
     :delimiter (delimiter)

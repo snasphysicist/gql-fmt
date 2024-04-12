@@ -1,7 +1,7 @@
-(ns gql-fmt.intermediate.variables 
-  (:require [taoensso.timbre :as logging]
-            [gql-fmt.intermediate.token :as token]
-            [gql-fmt.transform :as transform]))
+(ns gql-fmt.intermediate.variables
+  (:require [gql-fmt.intermediate.token :as token]
+            [gql-fmt.transform :as transform]
+            [taoensso.timbre :as logging]))
 
 (set! *warn-on-reflection* true)
 

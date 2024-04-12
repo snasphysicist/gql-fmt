@@ -10,5 +10,5 @@
    (interleave
     c1
     (repeatedly
-     (constantly 
+     (constantly
       e)))))

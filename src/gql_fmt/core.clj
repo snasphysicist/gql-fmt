@@ -1,5 +1,5 @@
 (ns gql-fmt.core
-  (:gen-class) 
+  (:gen-class)
   (:require [gql-fmt.format :as format]))
 
 (set! *warn-on-reflection* true)
