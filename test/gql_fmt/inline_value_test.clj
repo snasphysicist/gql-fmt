@@ -29,3 +29,12 @@
                 "}")
         reformatted (format/reformat q)]
     (test/is (= expect reformatted))))
+
+(test/deftest query-with-inline-list-string-value-test
+  (let [q "query{name(ids:[\"person2398\",8347,true])}"
+        expect (str
+                "query {" "\n"
+                "  name (ids:[\"person2398\", 8347, true])" "\n"
+                "}")
+        reformatted (format/reformat q)]
+    (test/is (= expect reformatted))))

@@ -1,6 +1,7 @@
 (ns gql-fmt.intermediate.value
   (:require
-   [gql-fmt.intermediate.token :as token]))
+   [gql-fmt.intermediate.token :as token]
+   [gql-fmt.transform :as transform]))
 
 (set! *warn-on-reflection* true)
 
@@ -57,6 +58,37 @@
   [(token/string-literal
     (str (:alumbra/boolean value)))])
 
+(declare from)
+
+(defn ^:private from-list
+  "Converts a list of inline values
+   into intermediate form"
+  [context value]
+  (assert
+   (=
+    :list
+    (:alumbra/value-type value)))
+  (concat
+   [(token/syntax-element
+     context
+     :bracket
+     :opening-list)]
+   (transform/inner-interleaved
+    (map
+     #(from context %)
+     (:alumbra/list value))
+    [(token/syntax-element
+      context
+      :delimiter
+      :between-values)
+     (token/whitespace
+      context
+      :between-values)])
+   [(token/syntax-element
+     context
+     :bracket
+     :closing-list)]))
+
 (defn from
   [context value]
   (let [value-type (:alumbra/value-type
@@ -73,6 +105,9 @@
 
       (= :boolean value-type)
       (from-boolean value)
+
+      (= :list value-type)
+      (from-list context value)
 
       :else
       (throw

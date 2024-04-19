@@ -29,6 +29,7 @@
    :after-variables " "
    :between-arguments " "
    :between-selections "\n"
+   :between-values " "
    :between-variables " "
    :indent "  "})
 
@@ -38,6 +39,7 @@
   []
   {:between-arguments ","
    :between-argument-and-type ":"
+   :between-values ","
    :between-variables ","
    :between-variable-and-argument ":"
    :closing-string "\""
