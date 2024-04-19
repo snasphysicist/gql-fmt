@@ -11,4 +11,3 @@
                 "}")
         reformatted (format/reformat q)]
     (test/is (= expect reformatted))))
-
