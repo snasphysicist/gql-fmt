@@ -12,3 +12,14 @@
                 "}")
         reformatted (format/reformat q)]
     (test/is (= expect reformatted))))
+
+(test/deftest fragment-usage-test
+  (let [q "query{user{...names}}"
+        expect (str
+                "query {" "\n"
+                "  user {" "\n"
+                "    ...names" "\n"
+                "  }" "\n"
+                "}")
+        reformatted (format/reformat q)]
+    (test/is (= expect reformatted))))

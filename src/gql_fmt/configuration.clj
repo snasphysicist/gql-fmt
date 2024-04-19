@@ -53,7 +53,8 @@
   "Configuration of prefixes prepended to
    elements in formatted output"
   []
-  {:before-variables "$"})
+  {:before-fragment-name "..."
+   :before-variables "$"})
 
 (defn ^:private suffix
   "Configuration of suffixes appended to
