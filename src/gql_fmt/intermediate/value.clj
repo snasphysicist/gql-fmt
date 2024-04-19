@@ -29,6 +29,24 @@
       :before-variables)
      (token/string-literal variable-name)]))
 
+(defn ^:private from-string
+  "Converts a string value into intermediate form"
+  [context value]
+  (assert
+   (=
+    :string
+    (:alumbra/value-type value)))
+  [(token/syntax-element
+    context
+    :delimiter
+    :opening-string)
+   (token/string-literal
+    (:alumbra/string value))
+   (token/syntax-element
+    context
+    :delimiter
+    :closing-string)])
+
 (defn from
   [context value]
   (let [value-type (:alumbra/value-type
@@ -39,6 +57,9 @@
 
       (= :integer value-type)
       (from-integer value)
+
+      (= :string value-type)
+      (from-string context value)
 
       :else
       (throw

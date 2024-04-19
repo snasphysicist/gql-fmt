@@ -39,7 +39,9 @@
   {:between-arguments ","
    :between-argument-and-type ":"
    :between-variables ","
-   :between-variable-and-argument ":"})
+   :between-variable-and-argument ":"
+   :closing-string "\""
+   :opening-string "\""})
 
 (defn ^:private prefix
   "Configuration of prefixes prepended to
