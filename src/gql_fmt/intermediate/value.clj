@@ -47,6 +47,16 @@
     :delimiter
     :closing-string)])
 
+(defn ^:private from-boolean
+  "Converts an boolean value into intermediate form"
+  [value]
+  (assert
+   (=
+    :boolean
+    (:alumbra/value-type value)))
+  [(token/string-literal
+    (str (:alumbra/boolean value)))])
+
 (defn from
   [context value]
   (let [value-type (:alumbra/value-type
@@ -60,6 +70,9 @@
 
       (= :string value-type)
       (from-string context value)
+
+      (= :boolean value-type)
+      (from-boolean value)
 
       :else
       (throw
