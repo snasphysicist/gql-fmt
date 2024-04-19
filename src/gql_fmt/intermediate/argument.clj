@@ -1,13 +1,15 @@
 (ns gql-fmt.intermediate.argument
   (:require [gql-fmt.intermediate.token :as token]
+            [gql-fmt.intermediate.value :as value]
             [gql-fmt.transform :as transform]
             [taoensso.timbre :as logging]))
 
 (set! *warn-on-reflection* true)
 
-(defn- from
+(defn ^:private from
   "Converts a single argument to the intermediate form"
   [context argument]
+  (logging/info (-> argument :alumbra/argument-value))
   (let [argument-name (:alumbra/argument-name argument)
         type (-> argument
                  :alumbra/argument-value
@@ -20,16 +22,10 @@
                        context
                        :delimiter
                        :between-argument-and-type)
-                      (token/syntax-element
+                      (value/from
                        context
-                       :prefix
-                       :before-variables)
-                      (token/string-literal variable-name)]]
-    (assert
-     (= type :variable)
-     (str
-      "Don't know what to do with arguments of type "
-      type))
+                       (:alumbra/argument-value
+                        argument))]]
     (logging/debug
      "Formatting argument with name"
      argument-name
