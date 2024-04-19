@@ -36,7 +36,11 @@
   (let [parsed (parser/parse-document q)
         fragments (:alumbra/fragments parsed)
         operations (:alumbra/operations parsed)
-        _ (logging/error parsed)
+        _ (assert
+           (< (count fragments) 2)
+           (str
+            "0-1 top level fragments assumed, found "
+            (count fragments)))
         _ (assert
            (< (count operations) 2)
            (str
@@ -52,7 +56,7 @@
                       intermediate
                       (intermediate.operation/from
                        context
-                       (first operations)))
+                       operations))
         intermediate (flatten intermediate)
         intermediate (remove nil? intermediate)]
     (logging/debug

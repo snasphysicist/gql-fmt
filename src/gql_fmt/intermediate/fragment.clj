@@ -60,5 +60,5 @@
   "Converts a sequence of fragments
    into intermediate form"
   [context fragments]
-  (assert (= 1 (count fragments)))
-  (from-one context (first fragments)))
+  (when (= 1 (count fragments))
+    (from-one context (first fragments))))
