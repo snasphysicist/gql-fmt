@@ -6,7 +6,7 @@
 
 (set! *warn-on-reflection* true)
 
-(defn from
+(defn ^:private from-one
   "Produces the intermediate form corresponding 
    to the provided Alumbra operation"
   [context o]
@@ -34,3 +34,10 @@
       (selection-set/from
        context
        (:alumbra/selection-set o))])))
+
+(defn from
+  "Converts a sequence of Alumbra operations
+   into the intermediate form"
+  [context operations]
+  (when (= 1 (count operations))
+    (from-one context (first operations))))

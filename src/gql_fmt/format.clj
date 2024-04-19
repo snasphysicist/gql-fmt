@@ -3,6 +3,7 @@
    [alumbra.parser :as parser]
    [clojure.string :as string]
    [gql-fmt.configuration :as configuration]
+   [gql-fmt.intermediate.fragment :as intermediate.fragment]
    [gql-fmt.intermediate.operation :as intermediate.operation]
    [gql-fmt.intermediate.print :as print]
    [taoensso.timbre :as logging]))
@@ -33,18 +34,25 @@
    into configured standard format"
   [q]
   (let [parsed (parser/parse-document q)
+        fragments (:alumbra/fragments parsed)
         operations (:alumbra/operations parsed)
+        _ (logging/error parsed)
         _ (assert
-           (= 1 (count operations))
+           (< (count operations) 2)
            (str
-            "One top level operation is assumed, found"
+            "0-1 top level operations assumed, found "
             (count operations)))
         context {:indent-level 0}
         context (configuration/with-configuration
                   context)
-        intermediate (intermediate.operation/from
+        intermediate (intermediate.fragment/from
                       context
-                      (first operations))
+                      fragments)
+        intermediate (concat
+                      intermediate
+                      (intermediate.operation/from
+                       context
+                       (first operations)))
         intermediate (flatten intermediate)
         intermediate (remove nil? intermediate)]
     (logging/debug

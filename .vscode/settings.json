@@ -1,0 +1,5 @@
+{
+    "calva.jackInEnv": {
+        "GQL_FMT_LOG_LEVEL": "DEBUG"
+    }
+}
