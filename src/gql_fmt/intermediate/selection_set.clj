@@ -34,10 +34,12 @@
   (let [context (indent/increase context)
         {field-name :alumbra/field-name
          sub-selection-set :alumbra/selection-set
-         arguments :alumbra/arguments} selection
+         arguments :alumbra/arguments
+         alias :alumbra/field-alias} selection
         name field-name
         has-sub-selection-set? (some? (seq sub-selection-set))
-        has-arguments? (some? (seq arguments))]
+        has-arguments? (some? (seq arguments))
+        has-alias? (some? alias)]
     (logging/debug
      "Formatting selection"
      selection
@@ -46,7 +48,9 @@
      "with sub selection set?"
      has-sub-selection-set?
      "with arguments?"
-     has-arguments?)
+     has-arguments?
+     "and alias"
+     alias)
     (let [intermediate-arguments (when has-arguments?
                                    [(token/whitespace
                                      context
@@ -71,7 +75,17 @@
                                                context
                                                :after-opening-selection-set)
                                               (from context sub-selection-set)]))
+          intermediate-alias (when has-alias?
+                               [(token/string-literal alias)
+                                (token/syntax-element
+                                 context
+                                 :delimiter
+                                 :after-alias)
+                                (token/whitespace
+                                 context
+                                 :after-alias)])
           intermediate-selection [(token/indent context)
+                                  intermediate-alias
                                   (token/string-literal name)
                                   intermediate-arguments
                                   intermediate-sub-selection-set]]

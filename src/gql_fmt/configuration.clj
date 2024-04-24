@@ -23,7 +23,8 @@
   "Configuration for whitespace between
    elements in formatted output"
   []
-  {:after-arguments " "
+  {:after-alias " "
+   :after-arguments " "
    :after-field-name " "
    :after-fragment " "
    :after-opening-selection-set "\n"
@@ -41,7 +42,8 @@
   "Configuration of delimiters between
    elements in formatted output"
   []
-  {:between-arguments ","
+  {:after-alias ":"
+   :between-arguments ","
    :between-argument-and-type ":"
    :between-values ","
    :between-variables ","
