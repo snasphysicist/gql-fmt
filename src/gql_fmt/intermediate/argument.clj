@@ -9,7 +9,6 @@
 (defn ^:private from
   "Converts a single argument to the intermediate form"
   [context argument]
-  (logging/info (-> argument :alumbra/argument-value))
   (let [argument-name (:alumbra/argument-name argument)
         type (-> argument
                  :alumbra/argument-value
