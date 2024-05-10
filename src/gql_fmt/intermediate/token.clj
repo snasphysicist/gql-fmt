@@ -30,15 +30,28 @@
   "Represents a region of whitespace
    between two other elements. `location`
    should correspond to a keyword in the
-   :whitespace context entry."
-  [context location]
-  (assert
-   (contains?
-    (:whitespace context)
+   :whitespace context entry.
+   
+   Optional `count` and `column` must
+   be given for whitespace entries where
+   there is the option to break or not
+   break, e.g. long variable lists.
+   `count` is the number of entities
+   (e.g. number of variables), `column`
+   is the start column of the first of
+   those entities."
+  ([context location]
+   (whitespace context location 0 0))
+  ([context location count column]
+   (assert
+    (contains?
+     (:whitespace context)
+     location)
     location)
-   location)
-  {:token :whitespace
-   :location location})
+   {:token :whitespace
+    :location location
+    :count count
+    :column column}))
 
 (defn syntax-element
   "Represents a syntax element meaningful

@@ -29,9 +29,12 @@
 
 (set-log-level!)
 
-(defn reformat
+(defn- reformat*
   "Reformat given string query `q`
-   into configured standard format"
+   into configured standard format, mostly!
+   Won't get the indents right for variable
+   or argument lists which are broken over
+   multiple lines."
   [q]
   (let [parsed (parser/parse-document q)
         fragments (:alumbra/fragments parsed)
@@ -59,7 +62,24 @@
                        operations))
         intermediate (flatten intermediate)
         intermediate (remove nil? intermediate)]
+    (when (:alumbra/parser-errors parsed)
+      (logging/error
+       "Failed to parse GraphQL query"
+       (:alumbra/parser-errors parsed)))
     (logging/debug
      "Intermediate form"
      intermediate)
     (print/->string context intermediate)))
+
+(defn reformat
+  "Reformat given string query `q`
+   into configured standard format."
+  [q]
+  ;; The first reformat will get the
+  ;; indents wrong for broken groups
+  ;; of entities, e.g. long variable lists,
+  ;; but this will be corrected by
+  ;; second pass because the first entity,
+  ;; e.g. first variable, will have been
+  ;; moved to its final location in the string
+  (reformat* (reformat* q)))

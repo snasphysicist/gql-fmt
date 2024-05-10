@@ -45,7 +45,8 @@
   (logging/debug
    "Formatting arguments"
    arguments)
-  (let [intermediate-arguments (transform/inner-interleaved
+  (let [column (-> arguments first :alumbra/metadata :column)
+        intermediate-arguments (transform/inner-interleaved
                                 (mapv
                                  #(from context %)
                                  arguments)
@@ -55,7 +56,9 @@
                                   :between-arguments)
                                  (token/whitespace
                                   context
-                                  :between-arguments)])
+                                  :between-arguments
+                                  (count arguments)
+                                  column)])
         bracketed [(token/syntax-element
                     context
                     :bracket

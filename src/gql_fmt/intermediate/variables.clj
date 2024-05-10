@@ -36,7 +36,8 @@
   (logging/debug
    "Variables -> intermediate form"
    variables)
-  (let [intermediate (map
+  (let [column (-> variables first :alumbra/metadata :column)
+        intermediate (map
                       #(variable context %)
                       variables)
         delimited (transform/inner-interleaved
@@ -47,7 +48,9 @@
                      :between-variables)
                     (token/whitespace
                      context
-                     :between-variables)])
+                     :between-variables
+                     (count variables)
+                     column)])
         with-brackets [(token/syntax-element
                         context
                         :bracket

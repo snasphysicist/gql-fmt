@@ -6,7 +6,10 @@
 (test/deftest query-with-list-variable-test
   (let [q "query($a:[Int],$b:[Int!],$c:[Int]!,$d:[Int!]!){name}"
         expect (str
-                "query ($a:[Int], $b:[Int!], $c:[Int]!, $d:[Int!]!) {" "\n"
+                "query ($a:[Int]," "\n"
+                "       $b:[Int!]," "\n"
+                "       $c:[Int]!," "\n"
+                "       $d:[Int!]!) {" "\n"
                 "  name" "\n"
                 "}")
         reformatted (format/reformat q)]

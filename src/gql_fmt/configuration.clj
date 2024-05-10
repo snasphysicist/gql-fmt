@@ -31,11 +31,15 @@
    :after-opening-operation "\n"
    :after-operation " "
    :after-variables " "
-   :between-arguments " "
+   :between-arguments {:break-at 4
+                       :unbroken " "
+                       :broken "\n"}
    :between-fragment-strings " "
    :between-selections "\n"
    :between-values " "
-   :between-variables " "
+   :between-variables {:break-at 4
+                       :unbroken " "
+                       :broken "\n"}
    :indent "  "})
 
 (defn ^:private delimiter

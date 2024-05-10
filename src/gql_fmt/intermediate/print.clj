@@ -3,6 +3,28 @@
 
 (set! *warn-on-reflection* true)
 
+(defn- whitespace->string
+  [context token]
+  (let [whitespace (:whitespace context)
+        configuration (get whitespace (:location token))
+        count (:count token)
+        break-at (:break-at configuration)
+        column (:column token)]
+    (cond
+      (string? configuration)
+      configuration
+
+      (not (and count break-at))
+      (assert (and count break-at))
+
+      (<= break-at count)
+      (string/join
+       [(:broken configuration)
+        (string/join (repeatedly column (constantly " ")))])
+
+      :else
+      (:unbroken configuration))))
+
 (defn- token->string
   "Stringify an intermediate form token"
   [context token]
@@ -19,9 +41,7 @@
         (-> context :whitespace :indent)))
 
       :whitespace
-      (-> context
-          :whitespace
-          (get (:location token)))
+      (whitespace->string context token)
 
       :syntax-element
       (-> context
